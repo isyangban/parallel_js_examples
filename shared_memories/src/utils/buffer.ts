@@ -1,7 +1,7 @@
-/*
 function makeBuffer(data: any): SharedArrayBuffer {
+  let dataBuffer: SharedArrayBuffer
   if (typeof data === "boolean") {
-    let dataBuffer = new SharedArrayBuffer(4)
+    dataBuffer = new SharedArrayBuffer(4)
     let view = new Int32Array(dataBuffer)
     if (data === true) {
       view[0] = 1
@@ -10,7 +10,8 @@ function makeBuffer(data: any): SharedArrayBuffer {
     }
     return dataBuffer
   } else if (typeof data === "number") {
-    this.dataBuffer = new SharedArrayBuffer(4)
+    dataBuffer = new SharedArrayBuffer(4);
+    return dataBuffer;
   } else {
     // if (typeof data === "string" || typeof data === "object") 
     let string_data: string
@@ -24,8 +25,9 @@ function makeBuffer(data: any): SharedArrayBuffer {
     let view = new Uint8Array(dataBuffer);
     // temp.
     // Copy contents to array once
-    for (let i = 0; i < dataBuffer.length; i++) {
+    for (let i = 0; i < buf.byteLength; i++) {
       view[i] = buf[i];
     }
-    this.dataBuffer = dataBuffer;
-}*/
+    return dataBuffer;
+  }
+}

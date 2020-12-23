@@ -1,11 +1,8 @@
-/*
 const LOCKED = 1
 const UNLOCKED = 0
 
 // Using SPIN_LOCK Implementaion
-class Mutex<T> {
-  dataBuffer: SharedArrayBuffer
-  dataType: string
+class SpinLock<T> {
   mutexBuffer: SharedArrayBuffer
   mutexBufferView: Int32Array
 
@@ -16,10 +13,8 @@ class Mutex<T> {
     this.mutexBufferView = new Int32Array(this.mutexBuffer)
     // We need to store data in shared array buffer
     // Since shared array buffer is just a range of bytes,
-    // We need to do some con
 
     }
-    this.dataType = typeof data
     // this._sab = opt_sab || new SharedArrayBuffer(4);
     // this._mu = new Int32Array(this._sab);
   }
@@ -35,9 +30,4 @@ class Mutex<T> {
     Atomics.compareExchange(this.mutexBufferView, 0, LOCKED, UNLOCKED)
     Atomics.notify(this.mutexBufferView, 0, 1);
   }
-
-  // Reads data 
-  read() {
-
-  }
-}*/
+}
