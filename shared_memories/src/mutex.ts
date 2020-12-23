@@ -2,11 +2,11 @@ const LOCKED = 1
 const UNLOCKED = 0
 
 // Using SPIN_LOCK Implementaion
-class SpinLock<T> {
+class SpinLock {
   mutexBuffer: SharedArrayBuffer
   mutexBufferView: Int32Array
 
-  constructor(data: T) {
+  constructor() {
     // Default, use spin lock
     // If spin lock, we need a mutexBuffer of size 4
     this.mutexBuffer = new SharedArrayBuffer(4)
@@ -14,7 +14,6 @@ class SpinLock<T> {
     // We need to store data in shared array buffer
     // Since shared array buffer is just a range of bytes,
 
-    }
     // this._sab = opt_sab || new SharedArrayBuffer(4);
     // this._mu = new Int32Array(this._sab);
   }
