@@ -1,0 +1,16 @@
+{
+  "extends": "@tsconfig/node14/tsconfig.json",
+  "compilerOptions": {
+      "target": "ES2020",
+      "esModuleInterop": true,
+      "module": "CommonJS",
+      "moduleResolution": "node",
+      "declaration": true,
+      "noImplicitAny": true,
+      "experimentalDecorators": true,
+      "rootDir": ".",
+      "sourceMap": true,
+      "noEmitOnError": true
+      // "outDir": "build"
+  },
+}
